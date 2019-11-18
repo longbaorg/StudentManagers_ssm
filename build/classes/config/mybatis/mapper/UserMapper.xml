@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+		namespace:对应具体的dao类
+		id:对应类中的方法名
+		parameterType:对应  形参的类型
+		resultType:对应方法返回值的类型
+ -->
+<mapper namespace="com.ischoolbar.programmer.dao.UserDao">
+  	<select id="findByUserName" parameterType="String" resultType="User">
+  		select * from user where username = #{username}
+  	</select>
+  	<select id="get_list" parameterType="Map" resultType="User">
+  	<!--offset从第几页   pageSize拿多少条 -->
+  		select * from user where username like #{username} limit #{offset},#{pageSize}
+  	</select>
+  	<select id="getTotal" parameterType="Map" resultType="Integer">
+  		select count(id) from user where username like #{username}
+  	</select>
+  	<insert id="addUser" parameterType="User">
+  		insert into user(id,username,password) value(null,#{username},#{password})
+  	</insert>
+  	<update id="edit" parameterType="User">
+  		update user set username = #{username},password = #{password} where id = #{id}
+  	</update>
+  	<update id="delete" parameterType="String">
+  		delete from user where id in (${value})
+  	</update>
+</mapper>
