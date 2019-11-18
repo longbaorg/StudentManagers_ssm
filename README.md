@@ -17,4 +17,4 @@
     框架：前端框架：easyui框架（目前最流行的前端管理框架）,后台框架：ssm框架。
     须提前掌握的知识点：Java基础、servlet基础知识基本认识了解、html、javascript（js）、jquery、css对这些有基本的了解认识。
   运行截图：
-  
+    ![Image text](https://github.com/longbaorg/StudentManagers_ssm/blob/master/classManager.png)
